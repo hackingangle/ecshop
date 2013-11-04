@@ -14,25 +14,25 @@ nanoyunToolBtn.IconPath = FCKPlugins.Items['nanoyun'].Path + 'images/toolbutton.
 FCKToolbarItems.RegisterItem('nanoyun', nanoyunToolBtn);//绑定到显示菜单
 
 //显示定义
-var nanoyunConfigPanel = new Object();
+// var nanoyunConfigPanel = new Object();
 
-nanoyunConfigPanel.add = function(name){
-	var configSpan = FCK.CreateElement('nanoyunconfig');
-	this.setup(configSpan, name);
-}
+// nanoyunConfigPanel.add = function(name){
+// 	var configSpan = FCK.CreateElement('nanoyunconfig');
+// 	this.setup(configSpan, name);
+// }
 
-nanoyunConfigPanel.setup = function(span, name){
-	span.innerHtml = '[[ ' + name + ' ]]';
-	span.style.backgroundColor = '#ffff00';
-	span.style.color = '#000000';
-	if(FCKBrowserInfo.IsGecko){
-		span.style.cursor = 'default';
-	}
-	span._nanoyunconfig = name;
-	span.contentEditable = false;
+// nanoyunConfigPanel.setup = function(span, name){
+// 	span.innerHtml = '[[ ' + name + ' ]]';
+// 	span.style.backgroundColor = '#ffff00';
+// 	span.style.color = '#000000';
+// 	if(FCKBrowserInfo.IsGecko){
+// 		span.style.cursor = 'default';
+// 	}
+// 	span._nanoyunconfig = name;
+// 	span.contentEditable = false;
 
-	span.onresizestart = function(){
-		FCk.EditorWindow.event.returnValue = false;
-		return false;
-	}
-}
+// 	span.onresizestart = function(){
+// 		FCk.EditorWindow.event.returnValue = false;
+// 		return false;
+// 	}
+// }

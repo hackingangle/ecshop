@@ -33,28 +33,20 @@ var bImageButton = ( document.location.search.length > 0 && document.location.se
 
 //#### Dialog Tabs
 
-// Set the dialog tabs.
+// 创建tab标签
 dialog.AddTab( 'Info', "上传") ;
+dialog.AddTab( 'Config', "配置");
+dialog.AddTab( 'Upload', "上传参考案例") ;
 
-if ( !bImageButton && !FCKConfig.ImageDlgHideLink )
-	dialog.AddTab( 'Link', FCKLang.DlgImgLinkTab ) ;
-
-if ( FCKConfig.ImageUpload )
-	dialog.AddTab( 'Upload', FCKLang.DlgLnkUpload ) ;
-
-if ( !FCKConfig.ImageDlgHideAdvanced )
-	dialog.AddTab( 'Advanced', FCKLang.DlgAdvancedTag ) ;
-
-// Function called when a dialog tag is selected.
+//在fckdialog.html中调用
 function OnDialogTabChange( tabCode )
 {
 	ShowE('divInfo'		, ( tabCode == 'Info' ) ) ;
-	ShowE('divLink'		, ( tabCode == 'Link' ) ) ;
 	ShowE('divUpload'	, ( tabCode == 'Upload' ) ) ;
-	ShowE('divAdvanced'	, ( tabCode == 'Advanced' ) ) ;
+	ShowE('divConfig'   , ( tabCode == 'Config'));
 }
 
-// Get the selected image (if available).
+// Get the selected image (if available).在fckdialog.html中定义
 var oImage = dialog.Selection.GetSelectedElement() ;
 
 if ( oImage && oImage.tagName != 'IMG' && !( oImage.tagName == 'INPUT' && oImage.type == 'image' ) )
@@ -105,7 +97,7 @@ window.onload = function()
 
 	// Show/Hide the "Browse Server" button.
 	GetE('tdBrowse').style.display				= FCKConfig.ImageBrowser	? '' : 'none' ;
-	GetE('divLnkBrowseServer').style.display	= FCKConfig.LinkBrowser		? '' : 'none' ;
+	// GetE('divLnkBrowseServer').style.display	= FCKConfig.LinkBrowser		? '' : 'none' ;
 
 	UpdateOriginal() ;
 
@@ -484,29 +476,34 @@ function OnUploadCompleted( errorNumber, fileUrl, fileName, customMsg )
 	GetE('frmUpload').reset() ;
 }
 
-var oUploadAllowedExtRegex	= new RegExp( FCKConfig.ImageUploadAllowedExtensions, 'i' ) ;
-var oUploadDeniedExtRegex	= new RegExp( FCKConfig.ImageUploadDeniedExtensions, 'i' ) ;
+//创建允许和不允许的正则
+// var oUploadAllowedExtRegex	= new RegExp( FCKConfig.ImageUploadAllowedExtensions, 'i' ) ;
+// var oUploadDeniedExtRegex	= new RegExp( FCKConfig.ImageUploadDeniedExtensions, 'i' ) ;
 
+//检测上传文件是否为空
 function CheckUpload()
 {
+	//getElementById的值
 	var sFile = GetE('txtUploadFile').value ;
 
+	//为空
 	if ( sFile.length == 0 )
 	{
-		alert( 'Please select a file to upload' ) ;
+		alert( '当前上传的文件不允许为空' ) ;
 		return false ;
 	}
 
-	if ( ( FCKConfig.ImageUploadAllowedExtensions.length > 0 && !oUploadAllowedExtRegex.test( sFile ) ) ||
-		( FCKConfig.ImageUploadDeniedExtensions.length > 0 && oUploadDeniedExtRegex.test( sFile ) ) )
-	{
-		OnUploadCompleted( 202 ) ;
-		return false ;
-	}
+	//根据config中的定义对上传文件类型进行约束
+	// if ( ( FCKConfig.ImageUploadAllowedExtensions.length > 0 && !oUploadAllowedExtRegex.test( sFile ) ) ||
+	// 	( FCKConfig.ImageUploadDeniedExtensions.length > 0 && oUploadDeniedExtRegex.test( sFile ) ) )
+	// {
+	// 	OnUploadCompleted( 202 ) ;
+	// 	return false ;
+	// }
 
 	// Show animation
-	window.parent.Throbber.Show( 100 ) ;
-	GetE( 'divUpload' ).style.display  = 'none' ;
+	// window.parent.Throbber.Show( 100 ) ;//显示到第一个窗口，进行预览
+	// GetE( 'divUpload' ).style.display  = 'none' ;//隐藏当前窗口
 
 	return true ;
 }

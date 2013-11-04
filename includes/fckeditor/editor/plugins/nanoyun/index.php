@@ -1,29 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!--
- * FCKeditor - The text editor for Internet - http://www.fckeditor.net
- * Copyright (C) 2003-2008 Frederico Caldeira Knabben
- *
- * == BEGIN LICENSE ==
- *
- * Licensed under the terms of any of the following licenses at your
- * choice:
- *
- *  - GNU General Public License Version 2 or later (the "GPL")
- *    http://www.gnu.org/licenses/gpl.html
- *
- *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
- *    http://www.gnu.org/licenses/lgpl.html
- *
- *  - Mozilla Public License Version 1.1 or later (the "MPL")
- *    http://www.mozilla.org/MPL/MPL-1.1.html
- *
- * == END LICENSE ==
- *
- * Image Properties dialog window.
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Image Properties</title>
+	<title>Nano云存储</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex, nofollow" />
 	<script src="scripts/fck_dialog_common.js" type="text/javascript"></script>
@@ -169,90 +147,47 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 			</script>
 		</form>
 	</div>
-	<div id="divLink" style="display: none">
-		<table cellspacing="1" cellpadding="1" border="0" width="100%">
-			<tr>
-				<td>
-					<div>
-						<span fcklang="DlgLnkURL">URL</span><br />
-						<input id="txtLnkUrl" style="width: 100%" type="text" onblur="UpdatePreview();" />
-					</div>
-					<div id="divLnkBrowseServer" align="right">
-						<input type="button" value="Browse Server" fcklang="DlgBtnBrowseServer" onclick="LnkBrowseServer();" />
-					</div>
-					<div>
-						<span fcklang="DlgLnkTarget">Target</span><br />
-						<select id="cmbLnkTarget">
-							<option value="" fcklang="DlgGenNotSet" selected="selected">&lt;not set&gt;</option>
-							<option value="_blank" fcklang="DlgLnkTargetBlank">New Window (_blank)</option>
-							<option value="_top" fcklang="DlgLnkTargetTop">Topmost Window (_top)</option>
-							<option value="_self" fcklang="DlgLnkTargetSelf">Same Window (_self)</option>
-							<option value="_parent" fcklang="DlgLnkTargetParent">Parent Window (_parent)</option>
-						</select>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div id="divAdvanced" style="display: none">
-		<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
-			<tr>
-				<td valign="top" width="50%">
-					<span fcklang="DlgGenId">Id</span><br />
-					<input id="txtAttId" style="width: 100%" type="text" />
-				</td>
-				<td width="1">
-					&nbsp;&nbsp;</td>
-				<td valign="top">
-					<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
-						<tr>
-							<td width="60%">
-								<span fcklang="DlgGenLangDir">Language Direction</span><br />
-								<select id="cmbAttLangDir" style="width: 100%">
-									<option value="" fcklang="DlgGenNotSet" selected="selected">&lt;not set&gt;</option>
-									<option value="ltr" fcklang="DlgGenLangDirLtr">Left to Right (LTR)</option>
-									<option value="rtl" fcklang="DlgGenLangDirRtl">Right to Left (RTL)</option>
-								</select>
-							</td>
-							<td width="1%">
-								&nbsp;&nbsp;</td>
-							<td nowrap="nowrap">
-								<span fcklang="DlgGenLangCode">Language Code</span><br />
-								<input id="txtAttLangCode" style="width: 100%" type="text" />&nbsp;
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<span fcklang="DlgGenLongDescr">Long Description URL</span><br />
-					<input id="txtLongDesc" style="width: 100%" type="text" />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					&nbsp;</td>
-			</tr>
-			<tr>
-				<td valign="top">
-					<span fcklang="DlgGenClass">Stylesheet Classes</span><br />
-					<input id="txtAttClasses" style="width: 100%" type="text" />
-				</td>
-				<td>
-				</td>
-				<td valign="top">
-					&nbsp;<span fcklang="DlgGenTitle">Advisory Title</span><br />
-					<input id="txtAttTitle" style="width: 100%" type="text" />
-				</td>
-			</tr>
-		</table>
-		<span fcklang="DlgGenStyle">Style</span><br />
-		<input id="txtAttStyle" style="width: 100%" type="text" />
+	<div id="divConfig" style="display: none">
+		<form action="" id="nanoyunConfig" target="nanoyunConfigWindow" method="post">
+			<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+				<tr>
+					<td>
+						Nano云存储配置：[<a href="http://wiki.nanoyun.com/php-sdk-doc/2013/10/30/how-to-config-key-secrets/" target="\"_blank\"">APPKEY、APPSECRET获取教程</a>]</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<span fcklang="AppKey">AppKey</span><br />
+						<input id="txtAttClasses" style="width: 100%" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						&nbsp;<span fcklang="AppSecret">AppSecret</span><br />
+						<input id="txtAttTitle" style="width: 100%" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td >
+						<input style="float:right;" type="submit" value="应用当前配置" />
+					</td>
+				</tr>
+			</table>
+			<script type="text/javascript">
+				document.write( '<iframe name="nanoyunConfigWindow" style="display: none" src="' + FCKTools.GetVoidUrl() + '"><\/iframe>' ) ;
+			</script>
+		</form>
 	</div>
 </body>
 </html>

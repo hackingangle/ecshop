@@ -52,7 +52,7 @@ FCKConfig.PluginsPath = FCKConfig.BasePath + 'plugins/' ;
 
 // FCKConfig.Plugins.Add( 'autogrow' ) ;
 // FCKConfig.Plugins.Add( 'dragresizetable' );
-FCKConfig.Plugins.Add('hello','zh-cn,en');
+// FCKConfig.Plugins.Add('hello','zh-cn,en');
 FCKConfig.Plugins.Add('swfupload');  
 FCKConfig.Plugins.Add('savehttpfiles');  
 FCKConfig.Plugins.Add('nanoyun', 'zh-cn,en');
@@ -126,7 +126,7 @@ FCKConfig.ToolbarSets["Basic"] = [
 
 FCKConfig.ToolbarSets["Normal"] = [
   ['Cut','Copy','Paste','PasteText','PasteWord','-','Undo','Redo','-','Find','Replace','-','RemoveFormat'],
-  ['Link','Unlink','-','Image', 'nanoyun', 'hello', 'swfupload', 'savehttpfiles','Flash','UpFileBtn','Table'],
+  ['Link','Unlink','-','Image', 'nanoyun', 'swfupload', 'savehttpfiles','Flash','UpFileBtn','Table'],
   ['FitWindow','-','Source'],
   '/',
   ['FontFormat','FontSize'],

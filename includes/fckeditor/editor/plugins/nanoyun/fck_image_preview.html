@@ -29,24 +29,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex, nofollow" />
 	<script type="text/javascript" rel="1">
+		var FCKTools	= window.parent.FCKTools ;
+		var FCKConfig	= window.parent.FCKConfig ;
 
-var FCKTools	= window.parent.FCKTools ;
-var FCKConfig	= window.parent.FCKConfig ;
+		// Set the preview CSS
+		document.write( FCKTools.GetStyleHtml( FCKConfig.EditorAreaCSS ) ) ;
+		document.write( FCKTools.GetStyleHtml( FCKConfig.EditorAreaStyles ) ) ;
 
-// Set the preview CSS
-document.write( FCKTools.GetStyleHtml( FCKConfig.EditorAreaCSS ) ) ;
-document.write( FCKTools.GetStyleHtml( FCKConfig.EditorAreaStyles ) ) ;
+		if ( window.parent.FCKConfig.BaseHref.length > 0 )
+			document.write( '<base href="' + window.parent.FCKConfig.BaseHref + '">' ) ;
 
-if ( window.parent.FCKConfig.BaseHref.length > 0 )
-	document.write( '<base href="' + window.parent.FCKConfig.BaseHref + '">' ) ;
-
-window.onload = function()
-{
-	window.parent.SetPreviewElements(
-		document.getElementById( 'imgPreview' ),
-		document.getElementById( 'lnkPreview' ) ) ;
-}
-
+		window.onload = function()
+		{
+			window.parent.SetPreviewElements(
+				document.getElementById( 'imgPreview' ),
+				document.getElementById( 'lnkPreview' ) ) ;
+		}
 	</script>
 </head>
 <body>

@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex, nofollow" />
 	<script src="scripts/fck_dialog_common.js" type="text/javascript"></script>
-	<script src="scripts/fck_image.js" type="text/javascript"></script>
+	<script src="scripts/fck_nanoyun.js" type="text/javascript"></script>
 		<script type="text/javascript">
 
 document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
@@ -147,8 +147,12 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 			</script>
 		</form>
 	</div>
+	<!-- 配置 -->
+	<?php 
+		require('php/config.php');
+	?>
 	<div id="divConfig" style="display: none">
-		<form action="" id="nanoyunConfig" target="nanoyunConfigWindow" method="post">
+		<form action="doconfig.php" id="nanoyunConfig" target="nanoyunConfigWindow" method="post">
 			<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
 				<tr>
 					<td>
@@ -160,7 +164,7 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 				<tr>
 					<td valign="top">
 						<span fcklang="AppKey">AppKey</span><br />
-						<input id="txtAttClasses" style="width: 100%" type="text" />
+						<input id="txtAttClasses" name="key" style="width: 100%" type="text" value="<?php echo APPKEY;?>"/>
 					</td>
 				</tr>
 				<tr>
@@ -169,7 +173,16 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 				<tr>
 					<td valign="top">
 						&nbsp;<span fcklang="AppSecret">AppSecret</span><br />
-						<input id="txtAttTitle" style="width: 100%" type="text" />
+						<input id="txtAttTitle" name="secret" style="width: 100%" type="text" value="<?php echo APPSECRET;?>"/>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						&nbsp;<span fcklang="AppSecret">空间名称</span><br />
+						<input id="txtAttTitle" name="spacename" style="width: 100%" type="text" value="<?php echo SPACENAME;?>"/>
 					</td>
 				</tr>
 				<tr>

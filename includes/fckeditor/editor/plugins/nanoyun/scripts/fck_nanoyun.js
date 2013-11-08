@@ -22,4 +22,41 @@ function OnDialogTabChange(tabCode){
 window.onload = function(){
 	//应用配置的处理url
 	GetE('nanoyunConfig').action = FCKConfig.BasePath + 'plugins/nanoyun/php/editconfig.php';
+	//上传文件url
+	GetE('nanoyunUpload').action = FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php';
+
+	//刷新
+	dialog.SetAutoSize( true ) ;
+	//首选控件
+	// SelectField( 'txtUrl' ) ;
+
+	dialog.SetOkButton( true ) ;
+}
+
+// Activate the "OK" button.
+
+function Ok() {
+    SetEditorContents();
+    return true;
+}
+
+function SetEditorContents() {
+    var fileList = document.getElementById("uploadedimgs").value;
+    fileList = fileList.substr(0, fileList.length - 1);
+    var filePath ='';
+    var strs = fileList.split(',');
+    var html = "";
+    for (i = 0; i < strs.length; i++) {
+
+        html += "<img src=" + filePath + strs[i] + "\><br>";
+
+    }
+    // var Editor = window.parent.InnerDialogLoaded().FCK;
+    // Editor.InsertHtml(html);
+    FCK.InsertHtml( html )
+    // alert(document.getElementById("uploadedimgs"));
+}
+
+function CheckUpload(){
+	return true;
 }

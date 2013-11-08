@@ -136,16 +136,17 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 		</table>
 	</div>
 	<div id="divUpload" style="display: none">
-		<form id="frmUpload" method="post" target="UploadWindow" enctype="multipart/form-data"
+		<form id="nanoyunUpload" method="post" target="UploadWindow" enctype="multipart/form-data"
 			action="" onsubmit="return CheckUpload();">
-			<span fcklang="DlgLnkUpload">Upload</span><br />
-			<input id="txtUploadFile" style="width: 100%" type="file" size="40" name="NewFile" /><br />
+			<span fcklang="DlgLnkUpload">上传到Nano云存储</span><br />
+			<input id="txtUploadFile" style="width: 100%" type="file" size="40" name="newimage" /><br />
 			<br />
-			<input id="btnUpload" type="submit" value="Send it to the Server" fcklang="DlgLnkBtnUpload" />
+			<input id="btnUpload" type="submit" value="开始上传" fcklang="DlgLnkBtnUpload" />
 			<script type="text/javascript">
 				document.write( '<iframe name="UploadWindow" style="display: none" src="' + FCKTools.GetVoidUrl() + '"><\/iframe>' ) ;
 			</script>
 		</form>
+		<input type="hidden" id="uploadedimgs"/>
 	</div>
 	<!-- 配置 -->
 	<?php 
@@ -183,6 +184,15 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 					<td valign="top">
 						&nbsp;<span fcklang="AppSecret">空间名称</span><br />
 						<input id="txtAttTitle" name="spacename" style="width: 100%" type="text" value="<?php echo SPACENAME;?>"/>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						&nbsp;<span fcklang="AppSecret">空间域名</span><br />
+						<input id="txtAttTitle" name="spacedomain" style="width: 100%" type="text" value="<?php echo SPACEDOMAIN;?>"/>
 					</td>
 				</tr>
 				<tr>

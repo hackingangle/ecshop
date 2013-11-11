@@ -23,7 +23,7 @@ window.onload = function(){
 	//应用配置的处理url
 	GetE('nanoyunConfig').action = FCKConfig.BasePath + 'plugins/nanoyun/php/editconfig.php';
 	//上传文件url
-	GetE('nanoyunUpload').action = FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php';
+	// GetE('nanoyunUpload').action = FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php';
 
 	//刷新
 	dialog.SetAutoSize( true ) ;

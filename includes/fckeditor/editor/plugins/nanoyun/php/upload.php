@@ -24,12 +24,12 @@ define('ROOT_PATH', preg_replace('/includes(.*)/i', '', str_replace('\\', '/', _
 $allowed_types = array('jpg', 'jpeg', 'gif', 'png', 'bmp', 'wbmp');
 $max_size = 50 * 1024 * 1024;//50M
 
-$file_type = strtolower(substr(strrchr($_FILES["newimage"]["name"], '.'), 1));
-$file_size = $_FILES["newimage"]["size"];
+$file_type = strtolower(substr(strrchr($_FILES["file"]["name"], '.'), 1));
+$file_size = $_FILES["file"]["size"];
 $ser_name = time();
 $tmp_path = ROOT_PATH."/images/upload/Image/" . $ser_name. '_nanoyun_tmp.'. $file_type;
 if(in_array($file_type, $allowed_types) && $file_size <= $max_size){
-	@move_uploaded_file($_FILES["newimage"]["tmp_name"],
+	@move_uploaded_file($_FILES["file"]["tmp_name"],
       $tmp_path);
 }
 
@@ -46,4 +46,5 @@ fclose($filestream);
 
 $img_path = 'http://'. SPACEDOMAIN. $dirname. $ser_name.'.'.$file_type;
 
-SendUploadResults($img_path) ;
+echo json_encode(array('url'=>$img_path));
+// SendUploadResults($img_path) ;

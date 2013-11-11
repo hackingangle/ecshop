@@ -7,13 +7,13 @@ var FCKDebug = oEditor.FCKDebug ;
 var FCKTools = oEditor.FCKTools ;
 
 //创建在dialog中显示的tab
-dialog.AddTab('Info', "上传") ;
+// dialog.AddTab('Info', "上传") ;
+dialog.AddTab('Upload', "上传") ;
 dialog.AddTab('Config', "配置");
-dialog.AddTab('Upload', "上传参考案例") ;
 
 //切换动作,回调
 function OnDialogTabChange(tabCode){
-	ShowE('divInfo', (tabCode == 'Info'));
+	// ShowE('divInfo', (tabCode == 'Info'));
 	ShowE('divUpload', (tabCode == 'Upload'));
 	ShowE('divConfig', (tabCode == 'Config'));
 }
@@ -30,7 +30,8 @@ window.onload = function(){
 	//首选控件
 	// SelectField( 'txtUrl' ) ;
 
-	dialog.SetOkButton( true ) ;
+	dialog.SetOkButton(true) ;
+    ShowE('divUpload', true);
 }
 
 // Activate the "OK" button.

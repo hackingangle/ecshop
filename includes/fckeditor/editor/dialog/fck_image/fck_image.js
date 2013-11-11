@@ -116,7 +116,7 @@ window.onload = function()
 	dialog.SetAutoSize( true ) ;
 
 	// Activate the "OK" button.
-	// dialog.SetOkButton( true ) ;
+	dialog.SetOkButton( true ) ;
 
 	SelectField( 'txtUrl' ) ;
 }

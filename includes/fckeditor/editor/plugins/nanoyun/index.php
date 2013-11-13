@@ -75,7 +75,7 @@
 			<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
 				<tr>
 					<td>
-						Nano云存储配置：[<a href="http://wiki.nanoyun.com/php-sdk-doc/2013/10/30/how-to-config-key-secrets/" target="\"_blank\"">APPKEY、APPSECRET获取教程</a>]</td>
+						Nano云存储配置：[<a href="http://www.nanoyun.com/help/article/34.html#use" target="\"_blank\"">配置获取教程</a>]</td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

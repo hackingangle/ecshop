@@ -50,13 +50,9 @@ FCKConfig.PreloadImages = [ FCKConfig.SkinPath + 'images/toolbar.start.gif', FCK
 
 FCKConfig.PluginsPath = FCKConfig.BasePath + 'plugins/' ;
 
-// FCKConfig.Plugins.Add( 'autogrow' ) ;
-// FCKConfig.Plugins.Add( 'dragresizetable' );
-// FCKConfig.Plugins.Add('hello','zh-cn,en');
-FCKConfig.Plugins.Add('swfupload');  
-FCKConfig.Plugins.Add('savehttpfiles');  
-FCKConfig.Plugins.Add('nanoyun', 'zh-cn,en');  
-// FCKConfig.Plugins.Add('InsertDynamicElement', 'en');
+// FCKConfig.Plugins.Add( 'autogrow' ) ; 
+FCKConfig.Plugins.Add('nanoyun', 'zh-cn,en');
+
 FCKConfig.AutoGrowMax = 400 ;
 
 // FCKConfig.ProtectedSource.Add( /<%[\s\S]*?%>/g ) ;	// ASP style server side code <%...%>

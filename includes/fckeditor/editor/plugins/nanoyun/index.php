@@ -6,12 +6,6 @@
 	<meta name="robots" content="noindex, nofollow" />
 	<script src="scripts/fck_dialog_common.js" type="text/javascript"></script>
 	<script src="scripts/fck_nanoyun.js" type="text/javascript"></script>
-		<script type="text/javascript">
-
-document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
-
-		</script>
-	<!-- import plupload libs start -->
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -19,19 +13,16 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 	<!-- Load plupload and all it's runtimes and finally the UI widget -->
 	<link rel="stylesheet" href="scripts/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css" type="text/css" />
 
-
-	<!-- production -->
-	<script type="text/javascript" src="scripts/plupload/plupload.full.min.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.gears.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.silverlight.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.flash.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.browserplus.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.html4.js"></script>
+	<script type="text/javascript" src="scripts/plupload/plupload.html5.js"></script>
 	<script type="text/javascript" src="scripts/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
-
-	<!-- debug 
-	<script type="text/javascript" src="scripts/plupload/moxie.js"></script>
-	<script type="text/javascript" src="scripts/plupload/plupload.dev.js"></script>
-	<script type="text/javascript" src="scripts/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
-	-->
-
-	<script type="text/javascript" src="scripts/plupload/i18n/zh_CN.js"></script>
-	<!-- import plupload libs end -->
+	<!-- translate to chinese-->
+	<script type="text/javascript" src="scripts/plupload/i18n/zh-cn.js"></script>
 </head>
 <body scroll="no" style="overflow: hidden">
 	<div id="divUpload" style="display: none">
@@ -43,12 +34,13 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 		// Convert divs to queue widgets when the DOM is ready
 		$(function() {
 			$("#uploader").plupload({
-				runtimes : 'html5,flash,silverlight',
+				runtimes : 'html5,gears,flash,silverlight,browserplus',
 				url : FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php',
+				max_file_size : '50mb',
 				
 				multipart: true,
 				multipart_params: {
-					'filename': '${filename}', // adding this to keep consistency across the runtimes
+					'filename': '${filename}' // adding this to keep consistency across the runtimes
 				},
 				
 				// !!!Important!!! 
@@ -58,14 +50,14 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 				// optional, but better be specified directly'jpg', 'jpeg', 'gif', 'png', 'bmp', 'wbmp'
 				file_data_name: 'file',
 
-				filters : {
+				filters : [
 					// Maximum file size
-					max_file_size : '50mb',
+					// max_file_size : '50mb',
 					// Specify what files to browse for
-					mime_types: [
+					// mime_types: [
 						{title : "Image files", extensions : "jpg,jpeg,gif,png,bmp,wbmp"}
-					]
-				},
+					// ]
+				],
 
 				init : {
 					FileUploaded: function(up, file, info) {
@@ -76,11 +68,14 @@ document.write( FCKTools.GetStyleHtml( GetCommonDialogCss() ) ) ;
 				},
 
 				// Flash settings
-				flash_swf_url : '../../js/Moxie.swf',
+				flash_swf_url : 'scripts/plupload/plupload.flash.swf',
 
 				// Silverlight settings
-				silverlight_xap_url : '../../js/Moxie.xap'
+				silverlight_xap_url : 'scripts/plupload/plupload.silverlight.xap'
 			});
+			//刷新CSS为了正确显示plupload样式
+			$('.plupload_header_title').css("color","red");
+			$('.plupload_header_title').css("color","black");
 		});
 		</script>
 	</div>

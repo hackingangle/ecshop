@@ -25,13 +25,14 @@ window.onload = function(){
 	//上传文件url
 	// GetE('nanoyunUpload').action = FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php';
 
-	//刷新
-	dialog.SetAutoSize( true ) ;
+    // alert('refresh1');
 	//首选控件
 	// SelectField( 'txtUrl' ) ;
 
 	dialog.SetOkButton(true) ;
     ShowE('divUpload', true);
+    //刷新
+    dialog.SetAutoSize( true ) ;
 }
 
 // Activate the "OK" button.

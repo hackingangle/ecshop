@@ -22,13 +22,6 @@ function OnDialogTabChange(tabCode){
 window.onload = function(){
 	//应用配置的处理url
 	GetE('nanoyunConfig').action = FCKConfig.BasePath + 'plugins/nanoyun/php/editconfig.php';
-	//上传文件url
-	// GetE('nanoyunUpload').action = FCKConfig.BasePath + 'plugins/nanoyun/php/upload.php';
-
-    // alert('refresh1');
-	//首选控件
-	// SelectField( 'txtUrl' ) ;
-
 	dialog.SetOkButton(true) ;
     ShowE('divUpload', true);
     //刷新
@@ -53,10 +46,7 @@ function SetEditorContents() {
         html += "<img src=" + filePath + strs[i] + "\><br>";
 
     }
-    // var Editor = window.parent.InnerDialogLoaded().FCK;
-    // Editor.InsertHtml(html);
     FCK.InsertHtml( html )
-    // alert(document.getElementById("uploadedimgs"));
 }
 
 function CheckUpload(){

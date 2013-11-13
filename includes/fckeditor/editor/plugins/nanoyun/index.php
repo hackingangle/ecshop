@@ -41,36 +41,23 @@
 				multipart: true,
 				multipart_params: {
 					'filename': '${filename}' // adding this to keep consistency across the runtimes
-				},
-				
-				// !!!Important!!! 
-				// this is not recommended with S3, since it will force Flash runtime into the mode, with no progress indication
-				// resize : {width : 400, height : 600, quality : 60},  // Resize images on clientside, if possible 
-				
+				}, 
 				// optional, but better be specified directly'jpg', 'jpeg', 'gif', 'png', 'bmp', 'wbmp'
 				file_data_name: 'file',
 
 				filters : [
-					// Maximum file size
-					// max_file_size : '50mb',
-					// Specify what files to browse for
-					// mime_types: [
-						{title : "Image files", extensions : "jpg,jpeg,gif,png,bmp,wbmp"}
-					// ]
+					{title : "Image files", extensions : "jpg,jpeg,gif,png,bmp,wbmp"}
 				],
 
 				init : {
 					FileUploaded: function(up, file, info) {
 						var obj = $.parseJSON(info.response);
-						// document.getElementById('uploadedimgs').value = storedimgs + '$values,';
 						$('#uploadedimgs').val($('#uploadedimgs').val() + obj.url + ',');
 		            }
 				},
 
-				// Flash settings
 				flash_swf_url : 'scripts/plupload/plupload.flash.swf',
 
-				// Silverlight settings
 				silverlight_xap_url : 'scripts/plupload/plupload.silverlight.xap'
 			});
 			//刷新CSS为了正确显示plupload样式

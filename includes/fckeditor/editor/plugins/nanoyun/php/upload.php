@@ -7,19 +7,7 @@ require('nanoyun.class.php');
 
 define('ROOT_PATH', preg_replace('/includes(.*)/i', '', str_replace('\\', '/', __FILE__)));
 
-//上传到nano云存储
-// $nanoyun = new Nanoyun(APPKEY, APPSECRET);
-// $filehandle = fopen('../data/foru.jpg', 'rb');
-// $filename = '/data/foru.jpg';//指定在云存储中的写入位置
-// $rsp = $nanoyun->write_file(SPACENAME, $filename, $filehandle);
-// var_dump(json_decode($rsp));
-// fclose($filehandle);
-
-
-
-
 //上传到临时目录
-
 //限制条件
 $allowed_types = array('jpg', 'jpeg', 'gif', 'png', 'bmp', 'wbmp');
 $max_size = 50 * 1024 * 1024;//50M

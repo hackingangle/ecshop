@@ -123,7 +123,7 @@ FCKConfig.ToolbarSets["Basic"] = [
 
 FCKConfig.ToolbarSets["Normal"] = [
   ['Cut','Copy','Paste','PasteText','PasteWord','-','Undo','Redo','-','Find','Replace','-','RemoveFormat'],
-  ['Link','Unlink','-','Image', 'nanoyun', 'swfupload', 'savehttpfiles','Flash','UpFileBtn','Table'],
+  ['Link','Unlink','-','Image', 'nanoyun','Flash','UpFileBtn','Table'],
   ['FitWindow','-','Source'],
   '/',
   ['FontFormat','FontSize'],
